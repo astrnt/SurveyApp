@@ -1,1 +1,1 @@
-include ':sample', ':qasdk'
+include ':app'
