@@ -6,31 +6,32 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import co.astrnt.surveyapp.BuildConfig;
-import co.astrnt.surveyapp.R;
-import co.astrnt.surveyapp.base.BaseActivity;
 import co.astrnt.qasdk.core.InterviewObserver;
 import co.astrnt.qasdk.dao.InterviewApiDao;
 import co.astrnt.qasdk.repository.InterviewRepository;
+import co.astrnt.surveyapp.BuildConfig;
+import co.astrnt.surveyapp.R;
+import co.astrnt.surveyapp.base.BaseActivity;
+import co.astrnt.surveyapp.feature.manager.LoginActivity;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class EnterCodeActivity extends BaseActivity {
+public class EnterCodeActivity extends BaseActivity implements View.OnClickListener {
 
     private InterviewRepository mInterviewRepository;
-    private EditText inpCode;
-    private Button btnSubmit;
+    private AppCompatEditText inpCode;
+    private Button btnSubmit, btnLogin;
     private ProgressDialog progressDialog;
 
     private boolean isNetworkOk = true;
@@ -53,6 +54,7 @@ public class EnterCodeActivity extends BaseActivity {
 
         inpCode = findViewById(R.id.inp_code);
         btnSubmit = findViewById(R.id.btn_submit);
+        btnLogin = findViewById(R.id.btn_login);
 
         mInterviewRepository = new InterviewRepository(getApi());
 
@@ -63,18 +65,8 @@ public class EnterCodeActivity extends BaseActivity {
 
         checkingPermission();
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String code = inpCode.getText().toString();
-                if (TextUtils.isEmpty(code)) {
-                    inpCode.setError("Code still empty");
-                    inpCode.setFocusable(true);
-                    return;
-                }
-                enterCode(code);
-            }
-        });
+        btnSubmit.setOnClickListener(this);
+        btnLogin.setOnClickListener(this);
     }
 
     @SuppressLint("CheckResult")
@@ -142,6 +134,33 @@ public class EnterCodeActivity extends BaseActivity {
 
     private void checkingAvailableStorage() {
         isMemoryOk = videoSDK.getAvailableMemory() > 100 + (videoSDK.getTotalQuestion() * 5);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_submit:
+                validateInput();
+                break;
+            case R.id.btn_login:
+                moveToLogin();
+                break;
+        }
+    }
+
+    private void moveToLogin() {
+        Intent intent = new Intent(context, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    private void validateInput() {
+        String code = inpCode.getText().toString();
+        if (TextUtils.isEmpty(code)) {
+            inpCode.setError("Code still empty");
+            inpCode.setFocusable(true);
+            return;
+        }
+        enterCode(code);
     }
 
     private void enterCode(final String code) {

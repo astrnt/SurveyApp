@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="RegisterInputStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -16,5 +21,30 @@
         <item name="android:singleLine">true</item>
         <item name="android:textSize">17sp</item>
     </style>
+
+    <style name="ButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/spaces_36</item>
+        <item name="android:paddingLeft">@dimen/spaces_triple</item>
+        <item name="android:paddingRight">@dimen/spaces_triple</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ButtonStyle.Primary">
+        <item name="android:background">@drawable/btn_primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ButtonStyle.Secondary">
+        <item name="android:background">@drawable/btn_secondary</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="ButtonStyle.OutlineWhite">
+        <item name="android:background">@drawable/btn_rounded_outline_white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 
 </resources>

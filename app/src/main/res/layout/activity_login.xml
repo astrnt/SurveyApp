@@ -20,20 +20,34 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/inp_code"
+        android:layout_above="@id/inp_email"
         android:layout_centerHorizontal="true"
-        android:text="Enter Code"
+        android:text="Login"
         android:textColor="@color/white"
         android:textSize="@dimen/text_headline"
         android:textStyle="bold"/>
 
     <android.support.v7.widget.AppCompatEditText
-        android:id="@+id/inp_code"
+        android:id="@+id/inp_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/inp_password"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/spaces_double"
+        android:hint="Email"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="@dimen/text_headline"
+        app:backgroundTint="@color/white"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/inp_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/spaces_double"
-        android:hint="Enter Code"
+        android:hint="Password"
         android:imeOptions="actionDone"
         android:inputType="text"
         android:textColor="@color/white"
@@ -46,19 +60,19 @@
         style="@style/ButtonStyle.Secondary"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/inp_code"
+        android:layout_below="@id/inp_password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/spaces_double"
-        android:text="Submit"/>
+        android:text="Login"/>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_enter_code"
         style="@style/ButtonStyle.OutlineWhite"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_submit"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/spaces_double"
-        android:text="Login"/>
+        android:text="Enter Code"/>
 
 </RelativeLayout>
