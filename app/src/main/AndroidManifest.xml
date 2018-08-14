@@ -21,7 +21,7 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".feature.candidate.EnterCodeActivity"
+            android:name=".feature.manager.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
@@ -31,6 +31,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!--Candidate Activity-->
+        <activity
+            android:name=".feature.candidate.EnterCodeActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name=".feature.candidate.RegisterActivity"
             android:launchMode="singleInstance"
@@ -63,13 +71,6 @@
             android:windowSoftInputMode="stateHidden"/>
 
         <!--Manager Activity-->
-        <activity
-            android:name=".feature.manager.LoginActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden"/>
-
         <activity
             android:name=".feature.manager.ListJobActivity"
             android:screenOrientation="portrait"
