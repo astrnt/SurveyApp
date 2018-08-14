@@ -84,6 +84,8 @@ public class ListVideoActivity extends BaseActivity {
         candidateId = getIntent().getStringExtra(EXT_CANDIDATE_ID);
         if (candidateId == null) {
             questionApiDao = getIntent().getParcelableExtra(EXT_QUESTION_DATA);
+        } else {
+            questionApiDao = new QuestionApiDao();
         }
 
         fabAdd.setVisibility(View.GONE);
