@@ -1,4 +1,4 @@
-package co.astrnt.samplemanagersdk.feature.adapter;
+package co.astrnt.surveyapp.feature.manager.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +11,8 @@ import java.util.List;
 
 import co.astrnt.managersdk.dao.CandidateApiDao;
 import co.astrnt.managersdk.dao.JobApiDao;
-import co.astrnt.samplemanagersdk.R;
-import co.astrnt.samplemanagersdk.feature.ListVideoActivity;
+import co.astrnt.surveyapp.R;
+import co.astrnt.surveyapp.feature.manager.ListVideoActivity;
 
 public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.ExampleViewHolder> {
 

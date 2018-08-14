@@ -1,4 +1,4 @@
-package co.astrnt.samplemanagersdk.feature.adapter;
+package co.astrnt.surveyapp.feature.manager.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -13,8 +13,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import co.astrnt.managersdk.dao.VideoApiDao;
-import co.astrnt.samplemanagersdk.R;
-import co.astrnt.samplemanagersdk.feature.VideoPreviewActivity;
+import co.astrnt.surveyapp.R;
+import co.astrnt.surveyapp.feature.manager.VideoPreviewActivity;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ExampleViewHolder> {
 

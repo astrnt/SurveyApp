@@ -1,4 +1,4 @@
-package co.astrnt.samplemanagersdk.feature.adapter;
+package co.astrnt.surveyapp.feature.manager.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
