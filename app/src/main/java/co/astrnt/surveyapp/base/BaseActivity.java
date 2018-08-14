@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import co.astrnt.managersdk.core.ManagerApi;
 import co.astrnt.qasdk.VideoSDK;
@@ -30,5 +31,13 @@ public class BaseActivity extends AppCompatActivity {
 
         videoSDK = new VideoSDK();
         interviewApiDao = videoSDK.getCurrentInterview();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(menuItem);
     }
 }
