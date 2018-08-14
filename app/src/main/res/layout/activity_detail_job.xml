@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spaces_double">
+
+        <TextView
+            android:id="@+id/txt_job_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Job Title"
+            android:textSize="@dimen/text_title"/>
+
+        <TextView
+            android:id="@+id/txt_job_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_normal"
+            tools:text="Job Type"/>
+
+        <TextView
+            android:id="@+id/txt_job_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_normal"
+            tools:text="Job Description"/>
+
+        <TextView
+            android:id="@+id/txt_job_requirement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_normal"
+            tools:text="Job Requirement"/>
+
+        <TextView
+            android:id="@+id/txt_job_responsibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_normal"
+            tools:text="Job Responsibility"/>
+
+        <TextView
+            android:id="@+id/txt_job_deadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_normal"
+            tools:text="Job Deadline"/>
+
+        <TextView
+            android:id="@+id/txt_total_candidate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_normal"
+            tools:text="Total Candidate"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_normal"
+            tools:text="Open Code"/>
+
+        <TextView
+            android:id="@+id/txt_job_open_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:drawablePadding="@dimen/spaces_normal"
+            android:drawableRight="@drawable/ic_share_black_24dp"
+            android:focusable="true"
+            android:padding="@dimen/spaces_normal"
+            android:textStyle="bold"
+            tools:text="ab1238def"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_see_candidates"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="See Candidates"/>
+
+            <Button
+                android:id="@+id/btn_see_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="See Questions"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spaces_triple"
+            android:text="Update This Job"/>
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spaces_normal"
+            android:text="Delete This Job"/>
+
+    </LinearLayout>
+</ScrollView>

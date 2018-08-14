@@ -34,7 +34,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         context = this;
 
         inpEmail = findViewById(R.id.inp_email);
-        inpPassword = findViewById(R.id.inp_code);
+        inpPassword = findViewById(R.id.inp_password);
         btnSubmit = findViewById(R.id.btn_submit);
         btnEnterCode = findViewById(R.id.btn_enter_code);
 

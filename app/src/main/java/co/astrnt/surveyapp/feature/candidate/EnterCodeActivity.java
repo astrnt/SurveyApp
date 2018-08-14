@@ -60,7 +60,7 @@ public class EnterCodeActivity extends BaseActivity implements View.OnClickListe
 
         videoSDK.clearDb();
         if (BuildConfig.DEBUG) {
-            inpCode.setText("upmVqCsC");
+            inpCode.setText("idvideo");
         }
 
         checkingPermission();

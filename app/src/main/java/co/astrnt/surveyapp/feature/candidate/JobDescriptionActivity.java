@@ -7,9 +7,10 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.widget.TextView;
 
+import co.astrnt.qasdk.dao.JobApiDao;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.base.BaseActivity;
-import co.astrnt.qasdk.dao.JobApiDao;
+import co.astrnt.surveyapp.utils.WordUtils;
 
 public class JobDescriptionActivity extends BaseActivity {
 
@@ -24,16 +25,18 @@ public class JobDescriptionActivity extends BaseActivity {
 
         setContentView(R.layout.activity_job_description);
 
-        TextView txtCompanyName = findViewById(R.id.txt_company_name);
+        TextView txtJobLocation = findViewById(R.id.txt_location);
         TextView txtJobTitle = findViewById(R.id.txt_job_title);
         TextView txtDescription = findViewById(R.id.txt_description);
         TextView txtResponsibility = findViewById(R.id.txt_responsibility);
         TextView txtRequirement = findViewById(R.id.txt_requirement);
+        TextView txtDeadline = findViewById(R.id.txt_deadline);
+        TextView txtTotalCandidates = findViewById(R.id.txt_total_candidates);
 
         JobApiDao jobApiDao = interviewApiDao.getJob();
 
-        txtCompanyName.setText(interviewApiDao.getCompany().getTitle());
         txtJobTitle.setText(jobApiDao.getTitle());
+        txtJobLocation.setText(WordUtils.getTypeAndLocation(jobApiDao));
 
         if (TextUtils.isEmpty(jobApiDao.getDescription())) {
             txtDescription.setText(R.string.not_available);

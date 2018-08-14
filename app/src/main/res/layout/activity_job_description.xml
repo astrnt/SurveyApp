@@ -4,109 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
+    android:padding="@dimen/spaces_double"
     tools:context=".feature.candidate.JobDescriptionActivity">
-
-    <TextView
-        android:id="@+id/txt_company_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/spaces_double"
-        android:layout_marginRight="@dimen/spaces_double"
-        android:layout_marginTop="@dimen/spaces_triple"
-        android:textAllCaps="true"
-        tools:text="Company Name"/>
 
     <TextView
         android:id="@+id/txt_job_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spaces_normal"
-        android:layout_marginLeft="@dimen/spaces_double"
-        android:layout_marginRight="@dimen/spaces_double"
-        android:textSize="@dimen/text_big"
+        android:textSize="@dimen/text_headline"
         android:textStyle="bold"
         tools:text="Job Title"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txt_location"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/spaces_double"
-        android:layout_marginRight="@dimen/spaces_double"
-        android:layout_marginTop="@dimen/spaces_double"
-        android:background="@drawable/card_background"
-        android:orientation="vertical"
-        android:padding="@dimen/spaces_double">
+        tools:text="Full time - Bandung"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/description"
-            android:textAllCaps="true"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/txt_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaces_normal"
-            android:gravity="center_vertical"
-            android:text="-"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/spaces_double"
-        android:layout_marginRight="@dimen/spaces_double"
-        android:layout_marginTop="@dimen/spaces_double"
-        android:background="@drawable/card_background"
-        android:orientation="vertical"
-        android:padding="@dimen/spaces_double">
+        android:layout_marginTop="@dimen/spaces_triple"
+        android:text="@string/description"
+        android:textStyle="bold"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/responsibility"
-            android:textAllCaps="true"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/txt_responsibility"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaces_normal"
-            android:gravity="center_vertical"
-            android:text="-"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/spaces_double"
-        android:layout_marginRight="@dimen/spaces_double"
-        android:layout_marginTop="@dimen/spaces_double"
-        android:background="@drawable/card_background"
-        android:orientation="vertical"
-        android:padding="@dimen/spaces_double">
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:gravity="center_vertical"
+        android:text="-"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/requirement"
-            android:textAllCaps="true"
-            android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:text="@string/requirement"
+        android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/txt_requirement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaces_normal"
-            android:gravity="center_vertical"
-            android:text="-"/>
+    <TextView
+        android:id="@+id/txt_requirement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:gravity="center_vertical"
+        android:text="-"/>
 
-    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:text="@string/responsibility"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txt_responsibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:gravity="center_vertical"
+        android:text="-"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:text="@string/deadline"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txt_deadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:gravity="center_vertical"
+        android:text="-"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:text="@string/total_candidates"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txt_total_candidates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:gravity="center_vertical"
+        android:text="0"/>
 
 </LinearLayout>

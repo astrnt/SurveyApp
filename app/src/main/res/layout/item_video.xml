@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="?android:selectableItemBackground"
+              android:orientation="horizontal"
+              android:padding="@dimen/spaces_double">
+
+    <ImageView
+        android:id="@+id/img_thumbnail"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        tools:src="@drawable/ic_broken_image_black_24dp"/>
+
+    <TextView
+        android:id="@+id/txt_question_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spaces_normal"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="Question Title"
+        android:textSize="@dimen/text_title"/>
+
+</LinearLayout>

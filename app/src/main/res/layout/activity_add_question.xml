@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    tools:context=".feature.manager.CreateJobActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Enter Question details below"/>
+
+        <EditText
+            android:id="@+id/inp_question_title"
+            style="@style/RegisterInputStyle"
+            android:hint="Question Title"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/inp_takes_count"
+            style="@style/RegisterInputStyle"
+            android:hint="Takes Count"
+            android:imeOptions="actionDone"
+            android:inputType="number"/>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="30dp"
+            android:text="Add Question"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</ScrollView>

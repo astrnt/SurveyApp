@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import co.astrnt.surveyapp.AstronautApp;
+import co.astrnt.managersdk.core.ManagerApi;
 import co.astrnt.qasdk.VideoSDK;
 import co.astrnt.qasdk.core.AstronautApi;
 import co.astrnt.qasdk.dao.InterviewApiDao;
+import co.astrnt.surveyapp.AstronautApp;
 
 public class BaseActivity extends AppCompatActivity {
     protected Context context = this;
@@ -17,6 +18,10 @@ public class BaseActivity extends AppCompatActivity {
 
     public static AstronautApi getApi() {
         return AstronautApp.getApi();
+    }
+
+    public static ManagerApi getManagerApi() {
+        return AstronautApp.getManagerApi();
     }
 
     @Override

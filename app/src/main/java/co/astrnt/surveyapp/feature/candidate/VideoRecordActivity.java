@@ -282,7 +282,7 @@ public class VideoRecordActivity extends BaseActivity implements RecordListener 
 
     private void moveToPreview() {
         if (recordFile != null) {
-            VideoPreviewActivity.start(context, Uri.fromFile(recordFile));
+            VideoPreviewRecordActivity.start(context, Uri.fromFile(recordFile));
             finish();
         }
     }

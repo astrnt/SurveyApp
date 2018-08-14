@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    tools:context=".feature.manager.CreateJobActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <TextView
+            android:id="@+id/txt_company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Company Name"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create New Job"
+            android:textSize="@dimen/text_big"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Enter your details below"/>
+
+        <EditText
+            android:id="@+id/inp_job_title"
+            style="@style/RegisterInputStyle"
+            android:hint="Job Title"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/inp_company_name"
+            style="@style/RegisterInputStyle"
+            android:hint="Company Name"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/inp_location"
+            style="@style/RegisterInputStyle"
+            android:hint="Location"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/inp_logo_url"
+            style="@style/RegisterInputStyle"
+            android:hint="Logo URL"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/inp_deadline"
+            style="@style/RegisterInputStyle"
+            android:hint="Deadline"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/inp_description"
+            style="@style/RegisterInputStyle"
+            android:gravity="top|left"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:maxLines="3"/>
+
+        <EditText
+            android:id="@+id/inp_responsibility"
+            style="@style/RegisterInputStyle"
+            android:gravity="top|left"
+            android:hint="Responsibility"
+            android:inputType="textMultiLine"
+            android:maxLines="3"/>
+
+        <EditText
+            android:id="@+id/inp_requirement"
+            style="@style/RegisterInputStyle"
+            android:gravity="top|left"
+            android:hint="Requirement"
+            android:inputType="textMultiLine"
+            android:maxLines="3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Job Type"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spn_job_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/job_type"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Industry Type"/>
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spn_industy_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/job_type"
+            android:spinnerMode="dialog"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Job Status"/>
+
+        <RadioGroup
+            android:id="@+id/rg_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Open"/>
+
+            <RadioButton
+                android:id="@+id/rb_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Close"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Is this job Require CV ?"/>
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/cbx_require_cv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes, this Job is Require CV"/>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="30dp"
+            android:text="Crate Job"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</ScrollView>

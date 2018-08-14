@@ -29,9 +29,9 @@ import co.astrnt.qasdk.videocompressor.services.VideoCompressService;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class VideoPreviewActivity extends BaseActivity implements PreviewListener, View.OnClickListener {
+public class VideoPreviewRecordActivity extends BaseActivity implements PreviewListener, View.OnClickListener {
 
-    private static final String EXT_VIDEO_URI = "VideoPreviewActivity.VideoUri";
+    private static final String EXT_VIDEO_URI = "VideoPreviewRecordActivity.VideoUri";
 
     private QuestionRepository mQuestionRepository;
 
@@ -52,7 +52,7 @@ public class VideoPreviewActivity extends BaseActivity implements PreviewListene
     private int questionAttempt;
 
     public static void start(Context context, Uri uri) {
-        Intent intent = new Intent(context, VideoPreviewActivity.class);
+        Intent intent = new Intent(context, VideoPreviewRecordActivity.class);
         intent.putExtra(EXT_VIDEO_URI, uri);
         context.startActivity(intent);
     }
@@ -61,7 +61,7 @@ public class VideoPreviewActivity extends BaseActivity implements PreviewListene
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_video_preview);
+        setContentView(R.layout.activity_video_preview_record);
 
         txtTitle = findViewById(R.id.txt_title);
         txtQuestion = findViewById(R.id.txt_question);
