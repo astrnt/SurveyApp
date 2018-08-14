@@ -25,6 +25,10 @@ public class JobDescriptionActivity extends BaseActivity {
 
         setContentView(R.layout.activity_job_description);
 
+        getSupportActionBar().setTitle("Job Description");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         TextView txtJobLocation = findViewById(R.id.txt_location);
         TextView txtJobTitle = findViewById(R.id.txt_job_title);
         TextView txtDescription = findViewById(R.id.txt_description);
