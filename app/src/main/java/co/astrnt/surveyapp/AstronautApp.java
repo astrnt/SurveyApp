@@ -31,7 +31,7 @@ public class AstronautApp extends Application {
             astrntSDK = new AstrntSDK(this, BuildConfig.API_URL, BuildConfig.DEBUG, BuildConfig.APPLICATION_ID);
         }
         if (managerSDK == null) {
-            managerSDK = new ManagerSDK(this, BuildConfig.API_URL, BuildConfig.DEBUG, BuildConfig.API_KEY);
+            managerSDK = new ManagerSDK(this, BuildConfig.API_URL, BuildConfig.DEBUG);
         }
     }
 }

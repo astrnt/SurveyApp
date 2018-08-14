@@ -8,15 +8,20 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-import co.astrnt.qasdk.repository.InterviewRepository;
+import co.astrnt.managersdk.core.MyObserver;
+import co.astrnt.managersdk.dao.LoginApiDao;
+import co.astrnt.managersdk.repository.CompanyRepository;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.base.BaseActivity;
 import co.astrnt.surveyapp.feature.candidate.EnterCodeActivity;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
-    private InterviewRepository mInterviewRepository;
+    private CompanyRepository mCompanyRepository;
     private AppCompatEditText inpPassword, inpEmail;
     private Button btnSubmit, btnEnterCode;
     private ProgressDialog progressDialog;
@@ -38,7 +43,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         btnSubmit = findViewById(R.id.btn_submit);
         btnEnterCode = findViewById(R.id.btn_enter_code);
 
-        mInterviewRepository = new InterviewRepository(getApi());
+        mCompanyRepository = new CompanyRepository(getManagerApi());
 
         videoSDK.clearDb();
 
@@ -83,6 +88,34 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void doLogin(final String email, final String password) {
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        mCompanyRepository.getApiKey(email, password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new MyObserver<LoginApiDao>() {
+
+                    @Override
+                    public void onApiResultCompleted() {
+                        progressDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onApiResultError(String message, String code) {
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onApiResultOk(LoginApiDao loginApiDao) {
+                        if (loginApiDao.getApi_key() != null) {
+                            managerSDK.setApiKey(loginApiDao.getApi_key());
+                            ListJobActivity.start(context);
+                        }
+                    }
+                });
     }
 
 }

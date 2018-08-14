@@ -17,7 +17,6 @@ android {
             applicationIdSuffix ".beta"
             buildConfigField "boolean", "BETA", "true"
             buildConfigField("String", "API_URL", '"http://beta.astrnt.co/api/"')
-            buildConfigField("String", "API_KEY", '"joBlKdu5jpope2w0plHjkiDr33k0183-20oAjruskdlwo29KFFmsHwhvkjBo4rD"')
             buildConfigField("int", "SDK_VERSION", "106")
             resValue "string", "app_name", "BETA Survey App"
         }
@@ -25,7 +24,6 @@ android {
             dimension "mode"
             buildConfigField "boolean", "BETA", "false"
             buildConfigField("String", "API_URL", '"http://app.astrnt.co/api/"')
-            buildConfigField("String", "API_KEY", '"joBlKdu5jpope2w0plHjkiDr33k0183-20oAjruskdlwo29KFFmsHwhvkjBo4rD"')
             buildConfigField("int", "SDK_VERSION", "106")
             resValue "string", "app_name", "Survey App"
         }
@@ -41,7 +39,7 @@ android {
 
 dependencies {
     implementation 'com.github.astrnt:qa-sdk-android:1.4'
-    implementation 'com.github.astrnt:manager-sdk:1.1'
+    implementation 'com.github.astrnt:manager-sdk:1.2'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
