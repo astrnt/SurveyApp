@@ -40,8 +40,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ExampleViewH
 
     @Override
     public void onBindViewHolder(ExampleViewHolder holder, int position) {
-        VideoApiDao pokemon = this.listData.get(position);
-        holder.onBind(pokemon);
+        VideoApiDao item = this.listData.get(position);
+        holder.onBind(item);
     }
 
     @Override

@@ -12,12 +12,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Job Title"
-        android:textSize="@dimen/text_title"/>
+        android:textSize="@dimen/text_headline"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/txt_job_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/text_title"
         tools:text="Job Type"/>
 
 </LinearLayout>

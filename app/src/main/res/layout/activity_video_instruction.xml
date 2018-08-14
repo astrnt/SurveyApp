@@ -137,8 +137,8 @@
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btn_continue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/ButtonStyle.Primary"
+                android:layout_width="150dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="@dimen/spaces_triple"
                 android:layout_marginTop="@dimen/spaces_triple"

@@ -23,8 +23,8 @@
 
     <Button
         android:id="@+id/btn_see_videos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyle.Primary"
+        android:layout_width="150dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/spaces_triple"
         android:text="See Videos"/>
@@ -37,14 +37,20 @@
 
         <Button
             android:id="@+id/btn_update"
+            style="@style/ButtonStyle.Secondary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:text="Update This Question"/>
 
+        <View
+            android:layout_width="@dimen/spaces_normal"
+            android:layout_height="@dimen/spaces_normal"/>
+
         <Button
             android:id="@+id/btn_delete"
+            style="@style/ButtonStyle.Secondary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

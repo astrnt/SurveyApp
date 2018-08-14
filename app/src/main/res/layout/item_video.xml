@@ -21,6 +21,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:text="Question Title"
-        android:textSize="@dimen/text_title"/>
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold"/>
 
 </LinearLayout>

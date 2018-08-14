@@ -87,15 +87,19 @@
 
             <Button
                 android:id="@+id/btn_see_candidates"
+                style="@style/ButtonStyle.Primary"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="See Candidates"/>
 
+            <View
+                android:layout_width="@dimen/spaces_normal"
+                android:layout_height="@dimen/spaces_normal"/>
+
             <Button
                 android:id="@+id/btn_see_question"
+                style="@style/ButtonStyle.Primary"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="See Questions"/>
 
@@ -103,16 +107,16 @@
 
         <Button
             android:id="@+id/btn_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtonStyle.Secondary"
+            android:layout_width="190dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spaces_triple"
             android:text="Update This Job"/>
 
         <Button
             android:id="@+id/btn_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ButtonStyle.Secondary"
+            android:layout_width="190dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spaces_normal"
             android:text="Delete This Job"/>
