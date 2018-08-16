@@ -10,26 +10,25 @@ import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.io.File;
 
-import co.astrnt.surveyapp.R;
-import co.astrnt.surveyapp.base.BaseActivity;
-import co.astrnt.surveyapp.listener.PreviewListener;
-import co.astrnt.surveyapp.utils.ServiceUtils;
 import co.astrnt.qasdk.core.MyObserver;
 import co.astrnt.qasdk.dao.BaseApiDao;
 import co.astrnt.qasdk.dao.QuestionApiDao;
 import co.astrnt.qasdk.repository.QuestionRepository;
 import co.astrnt.qasdk.videocompressor.services.VideoCompressService;
+import co.astrnt.surveyapp.R;
+import co.astrnt.surveyapp.base.BaseActivity;
+import co.astrnt.surveyapp.utils.ServiceUtils;
+import co.astrnt.surveyapp.widget.PreviewButtonView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class VideoPreviewRecordActivity extends BaseActivity implements PreviewListener, View.OnClickListener {
+public class VideoPreviewRecordActivity extends BaseActivity implements PreviewButtonView.PreviewListener {
 
     private static final String EXT_VIDEO_URI = "VideoPreviewRecordActivity.VideoUri";
 
@@ -39,9 +38,7 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewL
     private TextView txtQuestion;
     private VideoView videoView;
     private TextView txtAttemptInfo;
-    private TextView txtTimer;
-    private Button btnRetake;
-    private Button btnNext;
+    private PreviewButtonView previewButtonView;
 
     private ProgressDialog progressDialog;
 
@@ -66,10 +63,8 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewL
         txtTitle = findViewById(R.id.txt_title);
         txtQuestion = findViewById(R.id.txt_question);
         videoView = findViewById(R.id.video_view);
-        txtTimer = findViewById(R.id.txt_timer);
         txtAttemptInfo = findViewById(R.id.txt_attempt_info);
-        btnRetake = findViewById(R.id.btn_retake);
-        btnNext = findViewById(R.id.btn_next);
+        previewButtonView = findViewById(R.id.btn_preview);
 
         mQuestionRepository = new QuestionRepository(getApi());
 
@@ -78,8 +73,7 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewL
         videoUri = getIntent().getParcelableExtra(EXT_VIDEO_URI);
         videoView.setVideoURI(videoUri);
 
-        btnRetake.setOnClickListener(this);
-        btnNext.setOnClickListener(this);
+        previewButtonView.setPreviewListener(this);
 
         showInfo();
         prepareVideoPlayer();
@@ -94,13 +88,12 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewL
         txtTitle.setText("Preview");
 
         if (videoSDK.isLastAttempt()) {
-            btnRetake.setEnabled(false);
+            previewButtonView.setCurrentState(PreviewButtonView.STATE_DONE);
             txtAttemptInfo.setVisibility(View.GONE);
             finishQuestion(currentQuestion);
         } else {
             String attemptInfo = context.getResources().getQuantityString(R.plurals.you_have_more_attempt, questionAttempt, questionAttempt);
             txtAttemptInfo.setText(attemptInfo);
-            btnRetake.setEnabled(true);
             txtAttemptInfo.setVisibility(View.VISIBLE);
         }
 
@@ -113,12 +106,15 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewL
 
                 videoDuration = mp.getDuration();
 
+                previewButtonView.setMaxProgress((int) videoDuration / 1000);
+
                 ViewGroup.LayoutParams lp = videoView.getLayoutParams();
                 float videoWidth = mp.getVideoWidth();
                 float videoHeight = mp.getVideoHeight();
                 float viewWidth = videoView.getWidth();
                 lp.height = (int) (viewWidth * (videoHeight / videoWidth));
                 videoView.setLayoutParams(lp);
+                previewButtonView.setCurrentState(PreviewButtonView.STATE_PLAY);
                 onVideoPlay();
             }
         });
@@ -144,14 +140,13 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewL
         countDownTimer = new CountDownTimer(videoDuration, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                txtTimer.setVisibility(View.VISIBLE);
                 long currentProgress = millisUntilFinished / 1000;
-                txtTimer.setText(String.valueOf(currentProgress + 1));
+                previewButtonView.setCurrentProgress(currentProgress);
             }
 
             public void onFinish() {
-                txtTimer.setVisibility(View.GONE);
-                onVideoFinished();
+                previewButtonView.setCurrentProgress(0);
+                previewButtonView.setCurrentState(PreviewButtonView.STATE_FINISHED);
             }
         }.start();
     }
@@ -206,18 +201,6 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewL
                         onVideoDone();
                     }
                 });
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_retake:
-                onVideoRetake();
-                break;
-            case R.id.btn_next:
-                finishQuestion(currentQuestion);
-                break;
-        }
     }
 
     private void compressVideo() {

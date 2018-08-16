@@ -151,6 +151,7 @@ public class EnterCodeActivity extends BaseActivity implements View.OnClickListe
     private void moveToLogin() {
         Intent intent = new Intent(context, LoginActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void validateInput() {

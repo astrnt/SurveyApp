@@ -9,7 +9,6 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,25 +23,21 @@ import co.astrnt.qasdk.dao.QuestionApiDao;
 import co.astrnt.qasdk.repository.QuestionRepository;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.base.BaseActivity;
-import co.astrnt.surveyapp.listener.RecordListener;
+import co.astrnt.surveyapp.widget.RecordButtonView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class VideoRecordActivity extends BaseActivity implements RecordListener {
+import static co.astrnt.surveyapp.widget.RecordButtonView.STATE_ON_FINISH;
+import static co.astrnt.surveyapp.widget.RecordButtonView.STATE_ON_RECORD;
 
-    private static final String STATE_PRE_RECORD = "pre_record";
-    private static final String STATE_ON_COUNTDOWN = "on_countdown";
-    private static final String STATE_ON_RECORD = "on_record";
-    private static final String STATE_ON_FINISH = "on_finish";
-    private static String CURRENT_STATE = STATE_PRE_RECORD;
+public class VideoRecordActivity extends BaseActivity implements RecordButtonView.RecordListener {
 
     private QuestionRepository mQuestionRepository;
 
     private TextView txtTitle;
     private TextView txtQuestion;
     private TextView txtCountDown;
-    private TextView txtTimer;
-    private Button btnControl;
+    private RecordButtonView btnRecord;
     private CameraView cameraView;
 
     private ProgressDialog progressDialog;
@@ -65,18 +60,20 @@ public class VideoRecordActivity extends BaseActivity implements RecordListener 
         txtTitle = findViewById(R.id.txt_title);
         txtQuestion = findViewById(R.id.txt_question);
         txtCountDown = findViewById(R.id.txt_count_down);
-        txtTimer = findViewById(R.id.txt_timer);
         cameraView = findViewById(R.id.camera_view);
-        btnControl = findViewById(R.id.btn_control);
+        btnRecord = findViewById(R.id.btn_record);
 
         mQuestionRepository = new QuestionRepository(getApi());
 
         currentQuestion = videoSDK.getCurrentQuestion();
 
-        btnControl.setOnClickListener(new View.OnClickListener() {
+        btnRecord.setRecordListener(this);
+        btnRecord.setQuestion(currentQuestion);
+
+        btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setToNextState();
+                btnRecord.setToNextState();
             }
         });
 
@@ -132,59 +129,6 @@ public class VideoRecordActivity extends BaseActivity implements RecordListener 
                 });
     }
 
-
-    private String getCurrentState() {
-        return CURRENT_STATE;
-    }
-
-    public void setCurrentState(String currentState) {
-        CURRENT_STATE = currentState;
-        switch (getCurrentState()) {
-            case STATE_PRE_RECORD:
-                btnControl.setText("Start");
-                onPreRecord();
-                break;
-            case STATE_ON_COUNTDOWN:
-                btnControl.setText("Stop");
-                btnControl.setClickable(false);
-                btnControl.setEnabled(false);
-                btnControl.setVisibility(View.GONE);
-                onCountdown();
-                break;
-            case STATE_ON_RECORD:
-                btnControl.setText("Stop");
-                btnControl.setVisibility(View.VISIBLE);
-                onRecording();
-                break;
-            case STATE_ON_FINISH:
-                txtCountDown.setVisibility(View.GONE);
-                txtTimer.setVisibility(View.GONE);
-                onFinished();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void setToNextState() {
-        switch (getCurrentState()) {
-            case STATE_PRE_RECORD:
-                setCurrentState(STATE_ON_COUNTDOWN);
-                break;
-            case STATE_ON_COUNTDOWN:
-                setCurrentState(STATE_ON_RECORD);
-                break;
-            case STATE_ON_RECORD:
-                setCurrentState(STATE_ON_FINISH);
-                break;
-            case STATE_ON_FINISH:
-                setCurrentState(STATE_PRE_RECORD);
-                break;
-            default:
-                break;
-        }
-    }
-
     @Override
     public void onPreRecord() {
         txtTitle.setText("Instruction");
@@ -200,18 +144,21 @@ public class VideoRecordActivity extends BaseActivity implements RecordListener 
         if (videoSDK.isLastAttempt()) {
             videoSDK.markNotAnswer(currentQuestion);
         }
+        txtCountDown.setText(String.valueOf(btnRecord.getMaxProgress()));
         txtCountDown.setVisibility(View.VISIBLE);
-        countDownTimer = new CountDownTimer(10 * 1000, 1000) {
+        countDownTimer = new CountDownTimer(btnRecord.getMaxProgress() * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 long currentProgress = millisUntilFinished / 1000;
                 txtCountDown.setText(String.valueOf(currentProgress + 1));
+                btnRecord.setCurrentProgress(currentProgress);
             }
 
             public void onFinish() {
                 txtCountDown.setText(String.valueOf(1));
                 txtCountDown.setVisibility(View.GONE);
-                setCurrentState(STATE_ON_RECORD);
+                btnRecord.setCurrentProgress(0);
+                btnRecord.setCurrentState(STATE_ON_RECORD);
             }
         }.start();
     }
@@ -221,8 +168,6 @@ public class VideoRecordActivity extends BaseActivity implements RecordListener 
         txtTitle.setText("Recording");
         startRecording();
 
-        txtTimer.setVisibility(View.VISIBLE);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -230,11 +175,7 @@ public class VideoRecordActivity extends BaseActivity implements RecordListener 
 
                     public void onTick(long millisUntilFinished) {
                         long currentProgress = millisUntilFinished / 1000;
-                        txtTimer.setText(String.valueOf(currentProgress));
-                        if (currentProgress < 40) {
-                            btnControl.setClickable(true);
-                            btnControl.setEnabled(true);
-                        }
+                        btnRecord.setCurrentProgress(currentProgress);
                         if (currentProgress < 5) {
                             if (txtCountDown.getVisibility() == View.GONE) {
                                 txtCountDown.setVisibility(View.VISIBLE);
@@ -244,8 +185,8 @@ public class VideoRecordActivity extends BaseActivity implements RecordListener 
                     }
 
                     public void onFinish() {
-                        txtTimer.setVisibility(View.GONE);
-                        setCurrentState(STATE_ON_FINISH);
+                        btnRecord.setCurrentProgress(0);
+                        btnRecord.setCurrentState(STATE_ON_FINISH);
                     }
                 }.start();
             }

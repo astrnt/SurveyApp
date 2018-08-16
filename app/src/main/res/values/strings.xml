@@ -22,4 +22,12 @@
     <string name="attempt_left_s">Attempt Left %s</string>
     <string name="total_candidates">Total Candidates</string>
     <string name="deadline">Deadline</string>
+
+    <string name="start">Start</string>
+    <string name="retake">Retake</string>
+    <string name="preview">Preview</string>
+    <string name="practice_preview">Practice Preview</string>
+    <string name="done">Done</string>
+    <string name="finish">Finish</string>
+
 </resources>

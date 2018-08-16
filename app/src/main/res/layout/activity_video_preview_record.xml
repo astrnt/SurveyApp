@@ -45,14 +45,6 @@
         android:padding="@dimen/spaces_normal">
 
         <TextView
-            android:id="@+id/txt_timer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="45"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"/>
-
-        <TextView
             android:id="@+id/txt_attempt_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,23 +52,10 @@
             android:textColor="#FFFFFF"
             android:textSize="@dimen/text_small"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <co.astrnt.surveyapp.widget.PreviewButtonView
+            android:id="@+id/btn_preview"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_retake"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Retake"/>
-
-            <Button
-                android:id="@+id/btn_next"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Next Question"/>
-
-        </LinearLayout>
+            android:layout_marginTop="@dimen/spaces_normal"/>
     </LinearLayout>
 </RelativeLayout>

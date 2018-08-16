@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:circleview="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       tools:orientation="vertical"
+       tools:parentTag="android.widget.LinearLayout"
+    >
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spaces_normal"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:id="@+id/btn_retake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_retake"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retake"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spaces_normal"
+        android:layout_weight="1"/>
+
+    <RelativeLayout
+        android:id="@+id/btn_pause_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <rjsv.circularview.CircleView
+            android:id="@+id/circle_progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            circleview:arcColor="@color/color_arc"
+            circleview:arcHasBorder="false"
+            circleview:arcWidth="4dp"
+            circleview:clockwise="true"
+            circleview:enabled="false"
+            circleview:indicatorColor="@color/red"
+            circleview:indicatorRadius="6"
+            circleview:progressColor="@color/red"
+            circleview:progressCurrentValue="45"
+            circleview:progressMaximumValue="45"
+            circleview:progressMinimumValue="0"
+            circleview:progressStepAsInteger="true"
+            circleview:progressStepValue="1"
+            circleview:progressWidth="4dp"
+            circleview:textEnabled="false"/>
+
+        <ImageView
+            android:id="@+id/ic_pause_play"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_pause"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spaces_normal"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:id="@+id/btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_done"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/done"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spaces_normal"
+        android:layout_weight="1"/>
+
+</merge>

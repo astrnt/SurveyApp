@@ -13,6 +13,7 @@ import android.widget.Toast;
 import co.astrnt.managersdk.core.MyObserver;
 import co.astrnt.managersdk.dao.LoginApiDao;
 import co.astrnt.managersdk.repository.CompanyRepository;
+import co.astrnt.surveyapp.BuildConfig;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.base.BaseActivity;
 import co.astrnt.surveyapp.feature.candidate.EnterCodeActivity;
@@ -47,6 +48,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         videoSDK.clearDb();
 
+        if (BuildConfig.DEBUG) {
+            inpEmail.setText("furnawan@astrnt.co");
+            inpPassword.setText("123abc");
+        }
+
         btnSubmit.setOnClickListener(this);
         btnEnterCode.setOnClickListener(this);
     }
@@ -66,6 +72,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void moveToEnterCode() {
         Intent intent = new Intent(context, EnterCodeActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void validateInput() {
@@ -113,6 +120,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         if (loginApiDao.getApi_key() != null) {
                             managerSDK.setApiKey(loginApiDao.getApi_key());
                             ListJobActivity.start(context);
+                            finish();
                         }
                     }
                 });
