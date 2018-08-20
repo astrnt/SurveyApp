@@ -13,7 +13,7 @@ import co.astrnt.managersdk.dao.JobApiDao;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.feature.manager.DetailJobActivity;
 
-public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ExampleViewHolder> {
+public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 
     private List<JobApiDao> listData;
     private Context context;
@@ -29,16 +29,16 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ExampleViewHolde
     }
 
     @Override
-    public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public JobViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_job, parent, false);
-        return new ExampleViewHolder(view);
+        return new JobViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ExampleViewHolder holder, int position) {
-        JobApiDao pokemon = this.listData.get(position);
-        holder.onBind(pokemon);
+    public void onBindViewHolder(JobViewHolder holder, int position) {
+        JobApiDao data = this.listData.get(position);
+        holder.onBind(data);
     }
 
     @Override
@@ -46,14 +46,14 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ExampleViewHolde
         return listData.size();
     }
 
-    class ExampleViewHolder extends RecyclerView.ViewHolder {
+    class JobViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtJobTitle;
         private TextView txtJobType;
 
         private JobApiDao item;
 
-        ExampleViewHolder(View itemView) {
+        JobViewHolder(View itemView) {
             super(itemView);
             txtJobTitle = itemView.findViewById(R.id.txt_job_title);
             txtJobType = itemView.findViewById(R.id.txt_job_type);

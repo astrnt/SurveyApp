@@ -167,9 +167,7 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewB
 
     @Override
     public void onVideoDone() {
-        if (videoSDK.isNotLastQuestion()) {
-            videoSDK.increaseQuestionIndex();
-        }
+        videoSDK.increaseQuestionIndex();
         showNextQuestion();
         compressVideo();
     }
@@ -217,8 +215,8 @@ public class VideoPreviewRecordActivity extends BaseActivity implements PreviewB
         if (videoSDK.isNotLastQuestion()) {
             VideoInstructionActivity.start(context);
         } else {
-//            TODO: video upload
             Toast.makeText(context, "Interview Already Finished", Toast.LENGTH_SHORT).show();
+            VideoUploadInfoActivity.start(context);
         }
         finish();
     }

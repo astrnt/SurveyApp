@@ -48,10 +48,9 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
 
     implementation 'com.github.derohimat:CameraView:1.5.2'
-
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
-
     implementation 'com.squareup.picasso:picasso:2.71828'
-
     implementation 'com.github.rjsvieira:circularView:1.3.0'
+    implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+
 }

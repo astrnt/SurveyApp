@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txt_upload_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold"
+        tools:text="1."/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spaces_double"
+        android:orientation="vertical">
+
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+            android:id="@+id/progress_upload_status"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spaces_half"
+            android:layout_marginTop="@dimen/spaces_quadruple"
+            app:rcBackgroundColor="@color/pending"
+            app:rcBackgroundPadding="0dp"
+            app:rcMax="100"
+            app:rcProgress="0"
+            app:rcProgressColor="@color/uploading"
+            app:rcRadius="@dimen/spaces_tiny"
+            app:rcReverse="false"
+            app:rcSecondaryProgressColor="@color/uploading"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_half"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_upload_status"
+                android:layout_width="@dimen/spaces_quadruple"
+                android:layout_height="@dimen/spaces_quadruple"
+                android:src="@drawable/ic_pending"/>
+
+            <TextView
+                android:id="@+id/txt_upload_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spaces_normal"
+                android:layout_marginRight="@dimen/spaces_normal"
+                android:text="Pending"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

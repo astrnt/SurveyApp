@@ -30,4 +30,11 @@
     <string name="done">Done</string>
     <string name="finish">Finish</string>
 
+    <string name="upload_status">Upload Status</string>
+    <string name="pending">Pending</string>
+    <string name="complete">Complete</string>
+    <string name="uploading">Uploading</string>
+    <string name="uploaded">Uploaded</string>
+    <string name="failed">You did not answer this question.</string>
+
 </resources>

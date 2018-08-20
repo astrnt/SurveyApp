@@ -16,7 +16,7 @@ import co.astrnt.managersdk.dao.VideoApiDao;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.feature.manager.VideoPreviewActivity;
 
-public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ExampleViewHolder> {
+public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHolder> {
 
     private List<VideoApiDao> listData;
     private Context context;
@@ -32,14 +32,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ExampleViewH
     }
 
     @Override
-    public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public VideoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_video, parent, false);
-        return new ExampleViewHolder(view);
+        return new VideoViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ExampleViewHolder holder, int position) {
+    public void onBindViewHolder(VideoViewHolder holder, int position) {
         VideoApiDao item = this.listData.get(position);
         holder.onBind(item);
     }
@@ -49,14 +49,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ExampleViewH
         return listData.size();
     }
 
-    class ExampleViewHolder extends RecyclerView.ViewHolder {
+    class VideoViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtQuestionTitle;
         private ImageView imgThumbnail;
 
         private VideoApiDao item;
 
-        ExampleViewHolder(View itemView) {
+        VideoViewHolder(View itemView) {
             super(itemView);
             imgThumbnail = itemView.findViewById(R.id.img_thumbnail);
             txtQuestionTitle = itemView.findViewById(R.id.txt_question_title);

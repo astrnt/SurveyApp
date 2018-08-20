@@ -14,7 +14,7 @@ import co.astrnt.managersdk.dao.QuestionApiDao;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.feature.manager.DetailQuestionActivity;
 
-public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ExampleViewHolder> {
+public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder> {
 
     private List<QuestionApiDao> listData;
     private JobApiDao jobApiDao;
@@ -32,14 +32,14 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Exampl
     }
 
     @Override
-    public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public QuestionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_question, parent, false);
-        return new ExampleViewHolder(view);
+        return new QuestionViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ExampleViewHolder holder, int position) {
+    public void onBindViewHolder(QuestionViewHolder holder, int position) {
         QuestionApiDao pokemon = this.listData.get(position);
         holder.onBind(pokemon);
     }
@@ -49,14 +49,14 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Exampl
         return listData.size();
     }
 
-    class ExampleViewHolder extends RecyclerView.ViewHolder {
+    class QuestionViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtQuestionTitle;
         private TextView txtTakeCountAndMaxTime;
 
         private QuestionApiDao item;
 
-        ExampleViewHolder(View itemView) {
+        QuestionViewHolder(View itemView) {
             super(itemView);
             txtQuestionTitle = itemView.findViewById(R.id.txt_question_title);
             txtTakeCountAndMaxTime = itemView.findViewById(R.id.txt_takes_and_max_time);

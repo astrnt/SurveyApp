@@ -10,6 +10,7 @@
 
     <color name="white">#FFFFFF</color>
     <color name="white50">#80FFFFFF</color>
+    <color name="black33">#333333</color>
 
     <color name="red">#EA4D4D</color>
     <color name="bg_color">#E5E5E5</color>
@@ -21,5 +22,11 @@
     <color name="card_shadow_2">#cfcfcf</color>
     <color name="card_detailing">#eee</color>
     <color name="bg_layout">#E5E5E5</color>
+    <color name="black">#000000</color>
+    <!-- upload status colors -->
+    <color name="uploading">#7C9A76</color>
+    <color name="failed">#EA4D4D</color>
+    <color name="complete">#2F80ED</color>
+    <color name="pending">#DBDBDB</color>
 
 </resources>

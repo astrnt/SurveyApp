@@ -14,7 +14,7 @@ import co.astrnt.managersdk.dao.JobApiDao;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.feature.manager.ListVideoActivity;
 
-public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.ExampleViewHolder> {
+public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.CandidateViewHolder> {
 
     private List<CandidateApiDao> listData;
     private Context context;
@@ -32,16 +32,16 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.Exam
     }
 
     @Override
-    public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CandidateViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_candidate, parent, false);
-        return new ExampleViewHolder(view);
+        return new CandidateViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ExampleViewHolder holder, int position) {
-        CandidateApiDao pokemon = this.listData.get(position);
-        holder.onBind(pokemon);
+    public void onBindViewHolder(CandidateViewHolder holder, int position) {
+        CandidateApiDao data = this.listData.get(position);
+        holder.onBind(data);
     }
 
     @Override
@@ -49,14 +49,14 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.Exam
         return listData.size();
     }
 
-    class ExampleViewHolder extends RecyclerView.ViewHolder {
+    class CandidateViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtCandidateName;
         private TextView txtEmail;
 
         private CandidateApiDao item;
 
-        ExampleViewHolder(View itemView) {
+        CandidateViewHolder(View itemView) {
             super(itemView);
             txtCandidateName = itemView.findViewById(R.id.txt_candidate_name);
             txtEmail = itemView.findViewById(R.id.txt_email);

@@ -12,7 +12,7 @@ import java.util.List;
 import co.astrnt.managersdk.dao.NotificationApiDao;
 import co.astrnt.surveyapp.R;
 
-public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ExampleViewHolder> {
+public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
 
     private List<NotificationApiDao> listData;
     private Context context;
@@ -28,16 +28,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
 
     @Override
-    public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public NotificationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_notification, parent, false);
-        return new ExampleViewHolder(view);
+        return new NotificationViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ExampleViewHolder holder, int position) {
-        NotificationApiDao pokemon = this.listData.get(position);
-        holder.onBind(pokemon);
+    public void onBindViewHolder(NotificationViewHolder holder, int position) {
+        NotificationApiDao data = this.listData.get(position);
+        holder.onBind(data);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         return listData.size();
     }
 
-    class ExampleViewHolder extends RecyclerView.ViewHolder {
+    class NotificationViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtNotification;
         private TextView txtJobName;
@@ -53,7 +53,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         private NotificationApiDao item;
 
-        ExampleViewHolder(View itemView) {
+        NotificationViewHolder(View itemView) {
             super(itemView);
             txtNotification = itemView.findViewById(R.id.txt_notification);
             txtJobName = itemView.findViewById(R.id.txt_job_name);
