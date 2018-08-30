@@ -37,4 +37,31 @@
     <string name="uploaded">Uploaded</string>
     <string name="failed">You did not answer this question.</string>
 
+    <string name="hi_name">Hi %s,</string>
+
+    <!--Checking Device-->
+    <string name="checking_your_device">Checking Your Device</string>
+    <string name="checking_device_description">Please wait while we check your device’s permission settings and storage space.</string>
+    <string name="checking_device_loading">Loading</string>
+    <string name="checking">Checking…</string>
+
+    <!--Checking Device Error-->
+    <string name="problem_starting_your_q_a_session"><![CDATA[Problem Starting Your\nQ&A Session]]></string>
+    <string name="retry">Retry</string>
+    <string name="error_network_title">Slow Network Detected</string>
+    <string name="error_network_description">Check your network settings and make sure you have a stable connection.</string>
+    <string name="update_permission_settings">Update permission settings</string>
+    <string name="error_microphone_description">Astronaut needs permission to use your microphone to record your video.</string>
+    <string name="error_microphone_title">No Microphone Access</string>
+    <string name="error_camera_description">Astronaut needs permission to use your camera to record your video.</string>
+    <string name="error_camera_title">No Camera Access</string>
+    <string name="error_storage_description">Free up some space on your device to start using Astronaut.</string>
+    <string name="error_storage_title">Insufficient Storage</string>
+
+    <!--Checking Network-->
+    <string name="checking_your_network">Checking Your Network</string>
+    <string name="checking_network_description">Please wait while we check your device connection.</string>
+    <string name="times_up">Time’s up!</string>
+    <string name="times_up_description"><![CDATA[The time to do Q&A session for %1s at %2s is up. We have saved all the answers you submitted before the time run out.]]></string>
+
 </resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/InfoTitleTop"
+        android:text="@string/checking_your_device"/>
+
+    <ImageView
+        style="@style/ImageInfo"
+        android:src="@drawable/ic_checking_device"/>
+
+    <TextView
+        style="@style/IntroTitle"
+        android:text="@string/hi_name"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/txt_description"
+        style="@style/InfoDescription"
+        android:text="@string/checking_device_description"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/spaces_normal">
+
+        <ProgressBar
+            android:layout_width="@dimen/spaces_triple"
+            android:layout_height="@dimen/spaces_triple"
+            android:layout_margin="@dimen/spaces_normal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checking"
+            android:textColor="@color/primary"/>
+
+    </LinearLayout>
+
+</LinearLayout>

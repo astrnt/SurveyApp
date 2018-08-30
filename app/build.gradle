@@ -38,7 +38,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.astrnt:qa-sdk-android:1.4.2'
+    implementation 'com.github.astrnt:qa-sdk-android:1.5'
     implementation 'com.github.astrnt:manager-sdk:1.2'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -47,7 +47,7 @@ dependencies {
     implementation 'com.android.support:support-compat:27.1.1'
     implementation 'com.android.support:design:27.1.1'
 
-    implementation 'com.github.derohimat:CameraView:1.5.2'
+    implementation 'com.github.derohimat:CameraView:1.5.3'
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.rjsvieira:circularView:1.3.0'

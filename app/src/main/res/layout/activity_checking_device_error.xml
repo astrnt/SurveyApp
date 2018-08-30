@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/InfoTitleTop"
+        android:gravity="center_horizontal"
+        android:text="@string/problem_starting_your_q_a_session"/>
+
+    <RelativeLayout
+        android:id="@+id/ly_storage"
+        style="@style/LyDeviceError"
+        android:layout_marginTop="@dimen/spaces_triple">
+
+        <ImageView
+            android:id="@+id/img_storage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spaces_normal"
+            android:src="@drawable/ic_storage"/>
+
+        <TextView
+            android:id="@+id/txt_storage_title"
+            style="@style/DeviceErrorTitle"
+            android:layout_toEndOf="@+id/img_storage"
+            android:text="@string/error_storage_title"/>
+
+        <TextView
+            android:id="@+id/txt_storage_description"
+            style="@style/DeviceErrorDescription"
+            android:layout_below="@+id/txt_storage_title"
+            android:layout_toEndOf="@+id/img_storage"
+            android:text="@string/error_storage_description"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_camera"
+        style="@style/LyDeviceError"
+        android:layout_marginTop="@dimen/spaces_double">
+
+        <ImageView
+            android:id="@+id/img_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spaces_normal"
+            android:src="@drawable/ic_camera"/>
+
+        <TextView
+            android:id="@+id/txt_camera_title"
+            style="@style/DeviceErrorTitle"
+            android:layout_toEndOf="@+id/img_camera"
+            android:text="@string/error_camera_title"/>
+
+        <TextView
+            android:id="@+id/txt_camera_description"
+            style="@style/DeviceErrorDescription"
+            android:layout_below="@+id/txt_camera_title"
+            android:layout_toEndOf="@+id/img_camera"
+            android:text="@string/error_camera_description"/>
+
+        <TextView
+            android:id="@+id/txt_camera_settings"
+            style="@style/DeviceErrorSettings"
+            android:layout_below="@+id/txt_camera_description"
+            android:layout_toEndOf="@+id/img_camera"
+            android:text="@string/update_permission_settings"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_microphone"
+        style="@style/LyDeviceError"
+        android:layout_marginTop="@dimen/spaces_double">
+
+        <ImageView
+            android:id="@+id/img_microphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spaces_normal"
+            android:src="@drawable/ic_microphone"/>
+
+        <TextView
+            android:id="@+id/txt_microphone_title"
+            style="@style/DeviceErrorTitle"
+            android:layout_toEndOf="@+id/img_microphone"
+            android:text="@string/error_microphone_title"/>
+
+        <TextView
+            android:id="@+id/txt_microphone_description"
+            style="@style/DeviceErrorDescription"
+            android:layout_below="@+id/txt_microphone_title"
+            android:layout_toEndOf="@+id/img_microphone"
+            android:text="@string/error_microphone_description"/>
+
+        <TextView
+            android:id="@+id/txt_microphone_settings"
+            style="@style/DeviceErrorSettings"
+            android:layout_below="@+id/txt_microphone_description"
+            android:layout_toEndOf="@+id/img_microphone"
+            android:text="@string/update_permission_settings"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_network"
+        style="@style/LyDeviceError"
+        android:layout_marginTop="@dimen/spaces_double">
+
+        <ImageView
+            android:id="@+id/img_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spaces_normal"
+            android:src="@drawable/ic_slow_internet"/>
+
+        <TextView
+            android:id="@+id/txt_network_title"
+            style="@style/DeviceErrorTitle"
+            android:layout_toEndOf="@+id/img_network"
+            android:text="@string/error_network_title"/>
+
+        <TextView
+            android:id="@+id/txt_network_description"
+            style="@style/DeviceErrorDescription"
+            android:layout_below="@+id/txt_network_title"
+            android:layout_toEndOf="@+id/img_network"
+            android:text="@string/error_network_description"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_submit"
+        style="@style/ButtonStyle.Primary.Intro"
+        android:text="@string/retry"/>
+
+</LinearLayout>

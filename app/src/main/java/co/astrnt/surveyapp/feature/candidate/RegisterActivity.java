@@ -22,16 +22,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import co.astrnt.surveyapp.BuildConfig;
-import co.astrnt.surveyapp.R;
-import co.astrnt.surveyapp.base.BaseActivity;
-import co.astrnt.surveyapp.widget.CustomFieldEditText;
 import co.astrnt.qasdk.core.RegisterObserver;
 import co.astrnt.qasdk.dao.CustomFieldApiDao;
 import co.astrnt.qasdk.dao.InterviewApiDao;
 import co.astrnt.qasdk.dao.post.RegisterPost;
 import co.astrnt.qasdk.repository.InterviewRepository;
 import co.astrnt.qasdk.utils.StringUtils;
+import co.astrnt.surveyapp.BuildConfig;
+import co.astrnt.surveyapp.R;
+import co.astrnt.surveyapp.base.BaseActivity;
+import co.astrnt.surveyapp.widget.CustomFieldEditText;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -203,7 +203,7 @@ public class RegisterActivity extends BaseActivity {
                     @Override
                     public void onInterviewType(InterviewApiDao interview) {
                         Toast.makeText(context, "Video Interview", Toast.LENGTH_SHORT).show();
-                        VideoInfoActivity.start(context);
+                        CheckingDeviceActivity.start(context);
                         finish();
                     }
 
