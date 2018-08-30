@@ -138,6 +138,10 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
         <activity
+            android:name=".feature.manager.ListCompanyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
             android:name=".feature.manager.ListNotificationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>

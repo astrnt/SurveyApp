@@ -5,30 +5,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
     android:orientation="vertical"
     tools:context=".feature.manager.ListNotificationActivity">
 
-    <android.support.v7.widget.AppCompatSpinner
-        android:id="@+id/spn_company"
+    <LinearLayout
+        android:id="@+id/ly_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawSelectorOnTop="true"
-        android:entries="@array/job_type"
-        android:spinnerMode="dialog"/>
+        android:background="@color/white"
+        android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/spn_company"
-        android:background="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/spaces_normal"
+            android:paddingLeft="@dimen/spaces_double"
+            android:paddingRight="@dimen/spaces_double"
+            android:paddingTop="@dimen/spaces_normal"
+            android:text="Company"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spn_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spaces_normal"
+            android:layout_marginRight="@dimen/spaces_normal"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/job_type"
+            android:spinnerMode="dialog"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/spn_company"
-        android:layout_marginTop="@dimen/spaces_little"
-        tools:listitem="@layout/item_job"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ly_spinner"
+        android:layout_marginTop="@dimen/spaces_normal"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/spaces_double"
+            android:paddingRight="@dimen/spaces_double"
+            android:paddingTop="@dimen/spaces_normal"
+            android:text="Job List"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/spaces_little"
+            tools:listitem="@layout/item_job"/>
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_add"

@@ -18,6 +18,8 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.orhanobut.hawk.Hawk;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +32,9 @@ import co.astrnt.managersdk.repository.CompanyRepository;
 import co.astrnt.managersdk.repository.JobRepository;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.base.BaseActivity;
-import co.astrnt.surveyapp.feature.manager.adapter.CompanyAdapter;
+import co.astrnt.surveyapp.feature.manager.adapter.CompanySpinnerAdapter;
 import co.astrnt.surveyapp.feature.manager.adapter.JobAdapter;
+import co.astrnt.surveyapp.utils.PreferenceKey;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
@@ -46,7 +49,7 @@ public class ListJobActivity extends BaseActivity {
     private JobAdapter jobAdapter;
     private ProgressDialog progressDialog;
 
-    private CompanyAdapter companyAdapter;
+    private CompanySpinnerAdapter companySpinnerAdapter;
     private CompanyApiDao selectedCompany;
     private List<CompanyApiDao> listCompany = new ArrayList<>();
     private List<JobApiDao> listJob = new ArrayList<>();
@@ -82,12 +85,14 @@ public class ListJobActivity extends BaseActivity {
             }
         });
 
-        companyAdapter = new CompanyAdapter(context, android.R.layout.simple_spinner_dropdown_item, listCompany);
-        spnCompany.setAdapter(companyAdapter);
+        companySpinnerAdapter = new CompanySpinnerAdapter(context, android.R.layout.simple_spinner_dropdown_item, listCompany);
+        spnCompany.setAdapter(companySpinnerAdapter);
         spnCompany.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedCompany = companyAdapter.getItem(position);
+                selectedCompany = companySpinnerAdapter.getItem(position);
+                Hawk.put(PreferenceKey.SELECTED_COMPANY, selectedCompany);
+                companySpinnerAdapter.setData(listCompany);
                 getData();
             }
 
@@ -143,7 +148,7 @@ public class ListJobActivity extends BaseActivity {
                     public void onApiResultOk(ListCompanyApiDao apiDao) {
                         Timber.d(apiDao.getMessage());
                         listCompany = apiDao.getIntegration_company_list();
-                        companyAdapter.setData(listCompany);
+                        companySpinnerAdapter.setData(listCompany);
                     }
                 });
     }

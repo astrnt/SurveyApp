@@ -68,7 +68,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
         void onBind(JobApiDao item) {
             this.item = item;
             txtJobTitle.setText(item.getJob_name());
-            txtJobType.setText(item.getJob_type() + " - "  + item.getLocations());
+            txtJobType.setText(item.getJob_type().replace("_", " ") + " - "  + item.getLocations());
         }
     }
 }

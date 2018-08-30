@@ -85,11 +85,6 @@ public class VideoInstructionActivity extends BaseActivity {
                 moveToNext();
                 return;
             }
-        } else {
-            if (!videoSDK.isNotLastQuestion()) {
-                moveToNext();
-                return;
-            }
         }
 
         QuestionApiDao currentQuestion = videoSDK.getCurrentQuestion();

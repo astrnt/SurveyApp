@@ -19,6 +19,7 @@ import co.astrnt.surveyapp.BuildConfig;
 import co.astrnt.surveyapp.R;
 import co.astrnt.surveyapp.base.BaseActivity;
 import co.astrnt.surveyapp.feature.candidate.EnterCodeActivity;
+import co.astrnt.surveyapp.utils.PreferenceKey;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -50,10 +51,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         videoSDK.clearDb();
 
-        String apiKey = Hawk.get("apiKey");
+        String apiKey = Hawk.get(PreferenceKey.API_KEY);
         if (apiKey != null) {
             managerSDK.setApiKey(apiKey);
-            ListJobActivity.start(context);
+            ListCompanyActivity.start(context);
             finish();
         }
 
@@ -127,9 +128,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void onApiResultOk(LoginApiDao loginApiDao) {
                         if (loginApiDao.getApi_key() != null) {
-                            Hawk.put("apiKey", loginApiDao.getApi_key());
+                            Hawk.put(PreferenceKey.API_KEY, loginApiDao.getApi_key());
                             managerSDK.setApiKey(loginApiDao.getApi_key());
-                            ListJobActivity.start(context);
+                            ListCompanyActivity.start(context);
                             finish();
                         }
                     }

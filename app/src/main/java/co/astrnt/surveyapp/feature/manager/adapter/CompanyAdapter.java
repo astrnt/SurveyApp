@@ -1,62 +1,75 @@
 package co.astrnt.surveyapp.feature.manager.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.orhanobut.hawk.Hawk;
 
 import java.util.List;
 
 import co.astrnt.managersdk.dao.CompanyApiDao;
+import co.astrnt.surveyapp.R;
+import co.astrnt.surveyapp.feature.manager.ListJobActivity;
+import co.astrnt.surveyapp.utils.PreferenceKey;
 
-public class CompanyAdapter extends ArrayAdapter<CompanyApiDao> {
+public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.JobViewHolder> {
 
+    private List<CompanyApiDao> listData;
     private Context context;
-    private List<CompanyApiDao> data;
 
-    public CompanyAdapter(Context context, int textViewResourceId, List<CompanyApiDao> data) {
-        super(context, textViewResourceId, data);
+    public CompanyAdapter(Context context, List<CompanyApiDao> data) {
         this.context = context;
-        this.data = data;
+        listData = data;
     }
 
     public void setData(List<CompanyApiDao> data) {
-        this.data = data;
+        this.listData = data;
         notifyDataSetChanged();
     }
 
     @Override
-    public int getCount() {
-        return data.size();
+    public JobViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_company, parent, false);
+        return new JobViewHolder(view);
     }
 
     @Override
-    public CompanyApiDao getItem(int position) {
-        return data.get(position);
+    public void onBindViewHolder(JobViewHolder holder, int position) {
+        CompanyApiDao data = this.listData.get(position);
+        holder.onBind(data);
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    public int getItemCount() {
+        return listData.size();
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        TextView label = (TextView) super.getView(position, convertView, parent);
-        label.setTextColor(Color.BLACK);
-        label.setText(data.get(position).getName());
+    class JobViewHolder extends RecyclerView.ViewHolder {
 
-        return label;
-    }
+        private TextView txtCompany;
 
-    @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        TextView label = (TextView) super.getDropDownView(position, convertView, parent);
-        label.setTextColor(Color.BLACK);
-        label.setText(data.get(position).getName());
+        private CompanyApiDao item;
 
-        return label;
+        JobViewHolder(View itemView) {
+            super(itemView);
+            txtCompany = itemView.findViewById(R.id.txt_company_name);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Hawk.put(PreferenceKey.SELECTED_COMPANY, item);
+                    ListJobActivity.start(context);
+                }
+            });
+        }
+
+        void onBind(CompanyApiDao item) {
+            this.item = item;
+            txtCompany.setText(item.getName());
+        }
     }
 }

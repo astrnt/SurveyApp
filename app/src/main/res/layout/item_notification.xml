@@ -11,22 +11,26 @@
         android:id="@+id/txt_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notification"
-        android:textSize="@dimen/text_headline"/>
+        android:text="Job Title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_body"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/txt_job_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_title"
-        android:textStyle="bold"
-        tools:text="Job Name"/>
+        android:layout_marginTop="@dimen/spaces_half"
+        android:text="Job Title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_small"/>
 
     <TextView
         android:id="@+id/txt_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_title"
-        tools:text="Date"/>
+        android:layout_marginTop="@dimen/spaces_half"
+        android:textSize="@dimen/text_small"
+        tools:text="Job Type"/>
 
 </LinearLayout>
