@@ -2,6 +2,8 @@ package co.astrnt.surveyapp;
 
 import android.app.Application;
 
+import com.orhanobut.hawk.Hawk;
+
 import co.astrnt.managersdk.ManagerSDK;
 import co.astrnt.managersdk.core.ManagerApi;
 import co.astrnt.qasdk.AstrntSDK;
@@ -24,6 +26,8 @@ public class AstronautApp extends Application {
     public void onCreate() {
         super.onCreate();
         setUpSDK();
+
+        Hawk.init(this).build();
     }
 
     private void setUpSDK() {

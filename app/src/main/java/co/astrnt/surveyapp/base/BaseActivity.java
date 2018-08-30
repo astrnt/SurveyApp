@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import co.astrnt.managersdk.ManagerSDK;
 import co.astrnt.managersdk.core.ManagerApi;
 import co.astrnt.qasdk.VideoSDK;
 import co.astrnt.qasdk.core.AstronautApi;
@@ -15,6 +16,7 @@ import co.astrnt.surveyapp.AstronautApp;
 public class BaseActivity extends AppCompatActivity {
     protected Context context = this;
     protected VideoSDK videoSDK;
+    protected ManagerSDK managerSDK;
     protected InterviewApiDao interviewApiDao;
 
     public static AstronautApi getApi() {
@@ -30,6 +32,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         videoSDK = new VideoSDK();
+        managerSDK = new ManagerSDK();
         interviewApiDao = videoSDK.getCurrentInterview();
     }
 

@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.orhanobut.hawk.Hawk;
+
 import co.astrnt.managersdk.core.MyObserver;
 import co.astrnt.managersdk.dao.LoginApiDao;
 import co.astrnt.managersdk.repository.CompanyRepository;
@@ -47,6 +49,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mCompanyRepository = new CompanyRepository(getManagerApi());
 
         videoSDK.clearDb();
+
+        String apiKey = Hawk.get("apiKey");
+        if (apiKey != null) {
+            managerSDK.setApiKey(apiKey);
+            ListJobActivity.start(context);
+            finish();
+        }
 
         if (BuildConfig.DEBUG) {
             inpEmail.setText("furnawan@astrnt.co");
@@ -118,6 +127,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void onApiResultOk(LoginApiDao loginApiDao) {
                         if (loginApiDao.getApi_key() != null) {
+                            Hawk.put("apiKey", loginApiDao.getApi_key());
                             managerSDK.setApiKey(loginApiDao.getApi_key());
                             ListJobActivity.start(context);
                             finish();
