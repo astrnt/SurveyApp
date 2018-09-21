@@ -16,14 +16,79 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Job Title"
-            android:textSize="@dimen/text_title"/>
+            android:textColor="@color/primary"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txt_job_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spaces_normal"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             tools:text="Job Type"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaces_normal"
+                    android:text="Total Candidate"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txt_job_deadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaces_normal"
+                    android:textColor="@color/black"
+                    tools:text="7.30pm, 2 September 2018"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaces_normal"
+                    android:text="Total Candidate"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txt_total_candidate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaces_normal"
+                    android:textColor="@color/black"
+                    tools:text="100"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txt_job_description"
@@ -33,38 +98,44 @@
             tools:text="Job Description"/>
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Requirements"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <TextView
             android:id="@+id/txt_job_requirement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spaces_normal"
+            android:textColor="@color/black"
             tools:text="Job Requirement"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Responsibility"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txt_job_responsibility"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spaces_normal"
+            android:textColor="@color/black"
             tools:text="Job Responsibility"/>
 
         <TextView
-            android:id="@+id/txt_job_deadline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaces_normal"
-            tools:text="Job Deadline"/>
-
-        <TextView
-            android:id="@+id/txt_total_candidate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaces_normal"
-            tools:text="Total Candidate"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaces_normal"
-            tools:text="Open Code"/>
+            android:layout_marginTop="@dimen/spaces_double"
+            android:text="Open Code"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txt_job_open_code"
@@ -76,7 +147,7 @@
             android:drawableRight="@drawable/ic_share_black_24dp"
             android:focusable="true"
             android:padding="@dimen/spaces_normal"
-            android:textStyle="bold"
+            android:textColor="@color/black"
             tools:text="ab1238def"/>
 
         <LinearLayout
@@ -98,7 +169,7 @@
 
             <Button
                 android:id="@+id/btn_see_question"
-                style="@style/ButtonStyle.Primary"
+                style="@style/ButtonStyle.Secondary"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:text="See Questions"/>
@@ -111,7 +182,8 @@
             android:layout_width="190dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spaces_triple"
-            android:text="Update This Job"/>
+            android:text="Update This Job"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btn_delete"
@@ -119,7 +191,8 @@
             android:layout_width="190dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spaces_normal"
-            android:text="Delete This Job"/>
+            android:text="Delete This Job"
+            android:visibility="gone"/>
 
     </LinearLayout>
 </ScrollView>

@@ -77,11 +77,11 @@ public class DetailJobActivity extends BaseActivity implements View.OnClickListe
     private void showInfo() {
         txtTitle.setText(jobApiDao.getJob_name());
         txtJobType.setText(jobApiDao.getJob_type() + " - " + jobApiDao.getLocations());
-        txtDescription.setText("Description : " + jobApiDao.getDescription());
-        txtRequirements.setText("Requirement : " + jobApiDao.getRequirement());
-        txtResponsibility.setText("Responsibility : " + jobApiDao.getResponsibility());
-        txtDeadline.setText("Deadline : " + jobApiDao.getDeadline());
-        txtTotalCandidate.setText("Total Candidates : " + jobApiDao.getTotal_candidate());
+        txtDescription.setText(jobApiDao.getDescription());
+        txtRequirements.setText(jobApiDao.getRequirement());
+        txtResponsibility.setText(jobApiDao.getResponsibility());
+        txtDeadline.setText(jobApiDao.getDeadline());
+        txtTotalCandidate.setText(String.valueOf(jobApiDao.getTotal_candidate()));
         txtOpenCode.setText(jobApiDao.getOpen_code());
     }
 
