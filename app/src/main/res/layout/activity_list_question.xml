@@ -10,7 +10,7 @@
     tools:context=".feature.manager.ListNotificationActivity">
 
     <LinearLayout
-        android:id="@+id/ly_spinner"
+        android:id="@+id/ly_job"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -23,20 +23,23 @@
             android:paddingLeft="@dimen/spaces_double"
             android:paddingRight="@dimen/spaces_double"
             android:paddingTop="@dimen/spaces_normal"
-            android:text="Company"
+            android:text="Job"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_title"
             android:textStyle="bold"/>
 
-        <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spn_company"
+        <TextView
+            android:id="@+id/txt_job_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/spaces_normal"
-            android:layout_marginRight="@dimen/spaces_normal"
-            android:drawSelectorOnTop="true"
-            android:entries="@array/job_type"
-            android:spinnerMode="dialog"/>
+            android:paddingBottom="@dimen/spaces_normal"
+            android:paddingLeft="@dimen/spaces_double"
+            android:paddingRight="@dimen/spaces_double"
+            android:paddingTop="@dimen/spaces_normal"
+            android:text="Job Name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold"/>
 
         <View
             android:layout_width="match_parent"
@@ -47,7 +50,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ly_spinner"
+        android:layout_below="@+id/ly_job"
         android:layout_marginTop="@dimen/spaces_normal"
         android:background="@color/white"
         android:orientation="vertical">
@@ -58,7 +61,7 @@
             android:paddingLeft="@dimen/spaces_double"
             android:paddingRight="@dimen/spaces_double"
             android:paddingTop="@dimen/spaces_normal"
-            android:text="Job List"
+            android:text="Questions"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_title"
             android:textStyle="bold"/>

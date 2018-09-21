@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class ListQuestionActivity extends BaseActivity {
     private static final String EXT_DATA = "EXT_DATA";
     private QuestionRepository mQuestionRepository;
     private RecyclerView recyclerView;
+    private TextView txtJobName;
     private FloatingActionButton fabAdd;
     private QuestionAdapter questionAdapter;
     private ProgressDialog progressDialog;
@@ -49,19 +51,22 @@ public class ListQuestionActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view);
+        setContentView(R.layout.activity_list_question);
 
         getSupportActionBar().setTitle("List Question");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         recyclerView = findViewById(R.id.recycler_view);
+        txtJobName = findViewById(R.id.txt_job_name);
         fabAdd = findViewById(R.id.fab_add);
 
         mQuestionRepository = new QuestionRepository(getManagerApi());
         jobApiDao = getIntent().getParcelableExtra(EXT_DATA);
 
         questionAdapter = new QuestionAdapter(context, jobApiDao, listQuestion);
+
+        txtJobName.setText(jobApiDao.getJob_name());
 
         DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), LinearLayout.VERTICAL);
         recyclerView.addItemDecoration(decoration);
