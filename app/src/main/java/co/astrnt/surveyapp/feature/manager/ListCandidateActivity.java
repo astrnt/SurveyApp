@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class ListCandidateActivity extends BaseActivity {
     private static final String EXT_DATA = "EXT_DATA";
     private CandidateRepository mCandidateRepository;
     private RecyclerView recyclerView;
+    private TextView txtJobName;
     private FloatingActionButton fabAdd;
     private CandidateAdapter candidateAdapter;
     private ProgressDialog progressDialog;
@@ -49,16 +51,18 @@ public class ListCandidateActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view);
+        setContentView(R.layout.activity_list_candidate);
 
         getSupportActionBar().setTitle("List Candidate");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         recyclerView = findViewById(R.id.recycler_view);
+        txtJobName = findViewById(R.id.txt_job_name);
         fabAdd = findViewById(R.id.fab_add);
 
         jobApiDao = getIntent().getParcelableExtra(EXT_DATA);
+        txtJobName.setText(jobApiDao.getJob_name());
 
         mCandidateRepository = new CandidateRepository(getManagerApi());
 

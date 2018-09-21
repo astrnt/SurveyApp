@@ -72,10 +72,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             this.item = item;
             txtQuestionTitle.setText(item.getQuestion_title());
             Picasso.get().load(item.getThumbnail_url())
-                    .resize(75, 75)
+                    .resize(120, 98)
                     .centerCrop()
-                    .placeholder(R.drawable.ic_broken_image_black_24dp)
-                    .error(R.drawable.ic_broken_image_black_24dp)
                     .into(imgThumbnail);
         }
     }

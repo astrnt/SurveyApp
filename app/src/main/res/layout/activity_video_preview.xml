@@ -18,6 +18,5 @@
         android:background="#cc333333"
         android:padding="@dimen/spaces_double"
         android:text="Question Title"
-        android:textAllCaps="true"
         android:textColor="#FFFFFF"/>
 </RelativeLayout>

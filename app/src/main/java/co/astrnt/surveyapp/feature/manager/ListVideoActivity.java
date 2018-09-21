@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class ListVideoActivity extends BaseActivity {
     private static final String EXT_QUESTION_DATA = "QUESTION_ID";
     private CandidateRepository mCandidateRepository;
     private RecyclerView recyclerView;
+    private TextView txtJobName;
     private FloatingActionButton fabAdd;
     private VideoAdapter videoAdapter;
     private ProgressDialog progressDialog;
@@ -62,13 +64,14 @@ public class ListVideoActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view);
+        setContentView(R.layout.activity_list_video_candidate);
 
         getSupportActionBar().setTitle("List Video");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         recyclerView = findViewById(R.id.recycler_view);
+        txtJobName = findViewById(R.id.txt_job_name);
         fabAdd = findViewById(R.id.fab_add);
 
         mCandidateRepository = new CandidateRepository(getManagerApi());
@@ -87,6 +90,8 @@ public class ListVideoActivity extends BaseActivity {
         } else {
             questionApiDao = new QuestionApiDao();
         }
+
+        txtJobName.setText(jobApiDao.getJob_name());
 
         fabAdd.setVisibility(View.GONE);
         getData();

@@ -15,7 +15,7 @@ import co.astrnt.surveyapp.base.BaseActivity;
 public class VideoPreviewActivity extends BaseActivity {
 
     private static final String EXT_QUESTION_TITLE = "QUESTION_TITLE";
-    private static final String EXT_VIDEO_URL = "QUESTION_TITLE";
+    private static final String EXT_VIDEO_URL = "VIDEO_URL";
 
     private VideoView videoView;
 
